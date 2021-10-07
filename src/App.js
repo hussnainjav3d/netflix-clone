@@ -1,23 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import Row from "./Row";
+import "./App.css";
+import requests from "./request.js";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>NetFlix</h1>
+      <Row
+        title="NETFLIX ORIGiNALS"
+        fetchURL="https://api.themoviedb.org/3/discover/tv?api_key=90f8f366200af5d84b15e3c0d22ab1cb&with_networks=213"
+      />
+      <Row title="Trending" />
     </div>
   );
 }
