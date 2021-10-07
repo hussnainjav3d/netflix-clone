@@ -1,16 +1,26 @@
 import Row from "./Row";
+import Banner from "./Banner";
 import "./App.css";
 import requests from "./request.js";
 
 function App() {
   return (
     <div className="App">
-      <h1>NetFlix</h1>
+      {/* Nav */}
+      {/* Banner */}
+      <Banner fetchURL={requests.fetchNetflixOriginals} />
       <Row
         title="NETFLIX ORIGiNALS"
-        fetchURL="https://api.themoviedb.org/3/discover/tv?api_key=90f8f366200af5d84b15e3c0d22ab1cb&with_networks=213"
+        fetchURL={requests.fetchNetflixOriginals}
+        isLargeRow
       />
-      <Row title="Trending" />
+      <Row title="Trending" fetchURL={requests.fetchTrending} />
+      <Row title="Top Rated" fetchURL={requests.fetchTopRated} />
+      <Row title="Action Movies" fetchURL={requests.fetchActionMovies} />
+      <Row title="Comedy Movies" fetchURL={requests.fetchComedyMovies} />
+      <Row title="Horror Movies" fetchURL={requests.fetchHorrorMovies} />
+      <Row title="Romance Movies" fetchURL={requests.fetchRomanceMovies} />
+      <Row title="Documentaries" fetchURL={requests.fetchDocumentaries} />
     </div>
   );
 }
