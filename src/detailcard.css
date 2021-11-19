@@ -17,12 +17,12 @@
 
 .detail--card button {
     position: absolute;
-    top: 20px;
+    top: 15px;
     right: 20px;
     outline: none;
     border: none;
     color: white;
-    background-color: rgba(255, 255, 255, 0.25);
+    background-color: transparent;
     font-size: 25px;
     line-height: 25px;
     border-radius: 50%;
@@ -76,6 +76,11 @@ img {
         flex-direction: column;
         margin: auto;
     }
+
+    .detail--card button {
+        top: 5px;
+        right: 18px;
+    }
 }
 
 @media screen and (max-width:550px) {
@@ -86,7 +91,7 @@ img {
     }
 
     img {
-
+        padding-top: 1rem;
         margin-bottom: 1rem;
         max-height: 340px;
     }
@@ -102,8 +107,7 @@ img {
 
     .detail--card button {
         top: 2px;
-        right: 20px;
-        /* background-color: transparent; */
+        right: 0px;
         font-size: 1.275rem;
     }
 }
