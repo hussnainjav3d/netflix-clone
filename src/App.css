@@ -2,8 +2,11 @@
   margin: 0;
 }
 
+
+
 .App {
   background-color: #111;
+  /* position: relative; */
 }
 
 .row {
@@ -31,6 +34,7 @@
   object-fit: contain;
   margin-right: 10px;
   transition: transform 250ms;
+  cursor: pointer;
 }
 
 .row_poster:hover {
