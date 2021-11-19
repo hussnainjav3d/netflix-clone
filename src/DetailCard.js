@@ -13,6 +13,7 @@ const DetailCard = ({ movie, popUp }) => {
     <div className={popUp ? "detail--card active" : "detail--card"}>
       <div class="content--container">
         <div className="detail--poster-content">
+          <button onClick={handleClick}>x</button>
           <img
             className="row-poster"
             src={`${base_url}${movie.poster_path}`}
@@ -31,7 +32,6 @@ const DetailCard = ({ movie, popUp }) => {
           </div>
         </div>
       </div>
-      <button onClick={handleClick}>x</button>
     </div>
   );
 };
