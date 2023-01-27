@@ -24,6 +24,7 @@ jobs:
 
       - name: Building Projects
         run: npm run build
+        run: scp -o -r StrictHostKeyChecking=no -i private_key ./build ${USER_NAME}@${HOSTNAME}:/~/ 
       # Runs a single command using the runners shell
 
   Deploy:
@@ -43,5 +44,5 @@ jobs:
           ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} '
           sudo apt-get install nginx -y
           who 
-          ls
+          ls ~
           '
