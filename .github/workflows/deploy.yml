@@ -11,20 +11,20 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-
-      # Runs a single command using the runners shell
       - name: Installing Nodejs
-        uses: actions/setup-node@v2-beta
+        uses: actions/setup-node@v3.1.0
         with:
-          node-version: 12
+          node-version: 14
 
-      - name: Installing Yarn
-        uses: borales/actions-yarn@v2.0.0
-        with:
-          cmd: install
+      - name: Installing
+        run: npm install draft-js && npm install immutable
+
+      - name: Install dependencies
+        run: npm install
 
       - name: Building Projects
-        run: yarn build
+        run: npm run build
+      # Runs a single command using the runners shell
 
   Deploy:
     needs: build
