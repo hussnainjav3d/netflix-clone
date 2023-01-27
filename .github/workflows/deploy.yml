@@ -30,7 +30,7 @@ jobs:
         run: |
           npm run build
           echo "$PRIVATE_KEY" > private_key && chmod 400 private_key
-          scp -o  StrictHostKeyChecking=no -i private_key -r ./build ${USER_NAME}@${HOSTNAME}:/~/
+          sudo scp -o  StrictHostKeyChecking=no -i private_key -r ./build ${USER_NAME}@${HOSTNAME}:/home/ubuntu/test
       # Runs a single command using the runners shell
 
   Deploy:
