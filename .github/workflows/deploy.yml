@@ -1,0 +1,43 @@
+name: CI/CD AWS app
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  #First we will see the application build or not , then we will deploy in EC2
+  build:
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      # Runs a single command using the runners shell
+      - name: Installing Nodejs
+        uses: actions/setup-node@v2-beta
+        with:
+          node-version: 12
+
+      - name: Installing Yarn
+        uses: borales/actions-yarn@v2.0.0
+        with:
+          cmd: install
+
+      - name: Building Projects
+        run: yarn build
+
+  Deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Deploy in EC2
+        env:
+          PRIVATE_KEY: ${{ secrets.AWS_PRIVATE_KEY  }}
+          HOSTNAME: ${{ secrets.HOSTNAME  }}
+          USER_NAME: ${{ secrets.USER_NAME  }}
+
+        run: |
+          echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
+          ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME}'
+          who
