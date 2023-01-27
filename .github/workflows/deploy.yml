@@ -23,8 +23,9 @@ jobs:
         run: npm install
 
       - name: Building Projects
-        run: npm run build
-        run: scp -o -r StrictHostKeyChecking=no -i private_key ./build ${USER_NAME}@${HOSTNAME}:/~/ 
+        run: |
+          npm run build
+          scp -o -r StrictHostKeyChecking=no -i private_key ./build ${USER_NAME}@${HOSTNAME}:/~/
       # Runs a single command using the runners shell
 
   Deploy:
