@@ -5,6 +5,7 @@ import "./App.css";
 import requests from "./request.js";
 
 function App() {
+  console.log(`jsdfhkjhfsd`)
   return (
     <div className="App">
       <Nav />
