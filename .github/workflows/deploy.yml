@@ -5,11 +5,9 @@ on:
     branches: [main]
 
 jobs:
-  #First we will see the application build or not , then we will deploy in EC2
   build:
     runs-on: ubuntu-latest
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       - name: Installing Nodejs
         uses: actions/setup-node@v3.1.0
